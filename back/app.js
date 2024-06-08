@@ -2,8 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/users");
-const authController = require("./routes/auth");
-const passport = require("passport");
+const productRoutes = require("./routes/products");
 
 const app = express();
 const port = 3000;
@@ -19,14 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Rutas
 app.use("/users", userRoutes);
-// app.get("/auth/google/callback", authController.googleCallback);
-// app.post(
-// 	"/login",
-// 	passport.authenticate("local", { failureRedirect: "/login" }),
-// 	(req, res) => {
-// 		res.json({ message: "Authentication successful", user: req.user });
-// 	}
-// );
+app.use("/products", productRoutes);
 
 app.listen(port, () => {
 	console.log(`Server is running on http://localhost:${port}`);
