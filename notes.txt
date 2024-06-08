@@ -12,3 +12,7 @@ Se pueden crear 2 usuarios distintos, admin y cliente
 Admin gestiona las órdenes de compra ejemplo recibida y entregado
 Cliente realiza las compras 
 O puede ser que se envíe un Mail con la orden de compra
+
+
+Estados de consignas
+https://docs.google.com/spreadsheets/d/1ok58AfxHqktBCGSkgOoSsqFvt5aV_YXwQ-HfgpdVGlY/edit?usp=sharing
