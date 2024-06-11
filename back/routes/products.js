@@ -1,53 +1,53 @@
 const express = require("express");
-const Product = require("../models/Product");
+const Producto = require("../models/Producto");
 
 const router = express.Router();
 
-// Route to get all products
+// Ruta para obtener todos los productos
 router.get("/", async (req, res) => {
 	try {
-		const products = await Product.find();
-		res.status(200).json(products);
+		const productos = await Producto.find();
+		res.status(200).json(productos);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
 });
 
-//filter by category
-router.get("/category/:category", async (req, res) => {
+// Filtrar por categoría
+router.get("/categoria/:categoria", async (req, res) => {
 	try {
-		const category = req.params.category;
+		const categoria = req.params.categoria;
 
-		// Find products by category
-		const products = await Product.find({ category: category });
-		res.status(200).json(products);
+		// Encontrar productos por categoría
+		const productos = await Producto.find({ categoria: categoria });
+		res.status(200).json(productos);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
 });
 
-// Route to create a new product
+// Ruta para crear un nuevo producto
 router.post("/", async (req, res) => {
 	try {
-		const { image, title, description, category, price } = req.body;
+		const { imagen, titulo, descripcion, categoria, precio } = req.body;
 
-		// Validation of fields
-		if (!image || !title || !description || !category || !price) {
-			return res.status(400).json({ error: "All fields are required." });
+		// Validación de campos
+		if (!imagen || !titulo || !descripcion || !categoria || !precio) {
+			return res.status(400).json({ error: "Todos los campos son obligatorios." });
 		}
 
-		// Creating the new product
-		const newProduct = new Product({
-			image,
-			title,
-			description,
-			category,
-			price,
+		// Creación del nuevo producto
+		const nuevoProducto = new Producto({
+			imagen,
+			titulo,
+			descripcion,
+			categoria,
+			precio,
 		});
-		await newProduct.save();
+		await nuevoProducto.save();
 
-		// Sending response
-		res.status(201).json({ product: newProduct });
+		// Enviar respuesta
+		res.status(201).json({ producto: nuevoProducto });
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
