@@ -1,5 +1,5 @@
 const express = require("express");
-const Producto = require("../models/Producto");
+const Producto = require("../models/Product");
 
 const router = express.Router();
 
@@ -14,12 +14,12 @@ router.get("/", async (req, res) => {
 });
 
 // Filtrar por categoría
-router.get("/categoria/:categoria", async (req, res) => {
+router.get("/category/:category", async (req, res) => {
 	try {
-		const categoria = req.params.categoria;
+		const category = req.params.category;
 
 		// Encontrar productos por categoría
-		const productos = await Producto.find({ categoria: categoria });
+		const productos = await Producto.find({ category: category });
 		res.status(200).json(productos);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
@@ -29,20 +29,20 @@ router.get("/categoria/:categoria", async (req, res) => {
 // Ruta para crear un nuevo producto
 router.post("/", async (req, res) => {
 	try {
-		const { imagen, titulo, descripcion, categoria, precio } = req.body;
+		const { image, title, description, category, price } = req.body;
 
 		// Validación de campos
-		if (!imagen || !titulo || !descripcion || !categoria || !precio) {
+		if (!image || !title || !description || !category || !price) {
 			return res.status(400).json({ error: "Todos los campos son obligatorios." });
 		}
 
 		// Creación del nuevo producto
 		const nuevoProducto = new Producto({
-			imagen,
-			titulo,
-			descripcion,
-			categoria,
-			precio,
+			image,
+			title,
+			description,
+			category,
+			price,
 		});
 		await nuevoProducto.save();
 

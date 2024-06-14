@@ -4,11 +4,11 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/users");
 const productRoutes = require("./routes/products");
 const orderRoutes = require("./routes/order.js");
+const cors = require("cors"); // Importar cors
 
 const app = express();
 const port = 3000;
-///
-asdasadsdas
+
 // Conectar a MongoDB
 connectDB();
 
@@ -18,10 +18,13 @@ app.use(bodyParser.json());
 // Middleware para analizar application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// Configurar CORS
+app.use(cors());
+
 // Rutas
 app.use("/users", userRoutes);
 app.use("/products", productRoutes);
-app.use("/order", orderRoutes);
+//app.use("/order", orderRoutes);
 
 app.listen(port, () => {
 	console.log(`Server is running on http://localhost:${port}`);
