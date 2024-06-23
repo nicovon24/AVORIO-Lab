@@ -1,16 +1,16 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const connectDB = require("./config/db");
-const userRoutes = require("./routes/users");
-const productRoutes = require("./routes/products");
-const orderRoutes = require("./routes/order.js");
-const cors = require("cors"); // Importar cors
+import express from "express";
+import bodyParser from "body-parser";
+import userRoutes from "./routes/users.js";
+import productRoutes from "./routes/products.js";
+//import orderRoutes from "./routes/order.js";
+import cors from "cors"; // Importar cors
+import connectDb from "./config/db.js";
 
 const app = express();
 const port = 3000;
 
 // Conectar a MongoDB
-connectDB();
+connectDb();
 
 // Middleware para analizar application/json
 app.use(bodyParser.json());
@@ -30,4 +30,4 @@ app.listen(port, () => {
 	console.log(`Server is running on http://localhost:${port}`);
 });
 
-module.exports = app;
+export default app;

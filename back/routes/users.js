@@ -1,8 +1,8 @@
-const express = require("express");
-const bcrypt = require("bcrypt");
-const crypto = require("crypto");
-const User = require("../models/User");
-const jwt = require("jsonwebtoken");
+import express from "express";
+import bcrypt from "bcrypt";
+import crypto from "crypto";
+import User from "../models/User.js";
+import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
@@ -73,4 +73,4 @@ router.post("/login", async (req, res) => {
 	}
 });
 
-module.exports = router;
+export default router;

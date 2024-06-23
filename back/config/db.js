@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const mongoURI =
 	"mongodb+srv://nicovon24:gXOW8DLnTs7ecr5A@avorio.wnebi83.mongodb.net/";
@@ -16,4 +16,4 @@ const connectDB = async () => {
 	}
 };
 
-module.exports = connectDB;
+export default connectDB;
