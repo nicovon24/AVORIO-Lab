@@ -13,7 +13,7 @@ const Cards = () => {
 	}, [dispatch]);
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col bg-[#F1F3FF]">
 			<h1 className="text-2xl font-bold mb-4">Product List</h1>
 			<div className="flex flex-wrap -mx-4">
 				{products.map((product) => (

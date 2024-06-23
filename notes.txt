@@ -6,8 +6,8 @@ Registro usuario   OK
 Login  OK
 Fuente de datos de productos(JSON, sql, nosql): imagen, título, descripción, categoría y precio   OK 
 El cliente tiene que poder filtrar por categoría, seleccionar cantidad de productos y añadir al carrito
-El carrito tiene que abrir una nueva ventana con un resumen de los productos, cantidad, precio, subtotal, total
-Esto debe generar una orden de compra
+El carrito tiene que abrir una nueva ventana con un resumen de los productos, cantidad, precio, subtotal, total  OK
+Esto debe generar una orden de compra   OK
 Se pueden crear 2 usuarios distintos, admin y cliente   OK
 Admin gestiona las órdenes de compra ejemplo recibida y entregado
 Cliente realiza las compras 

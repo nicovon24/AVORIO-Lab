@@ -7,7 +7,7 @@ import axios from "axios";
 export function getAllOrders() {
 	return async function (dispatch) {
 		try {
-			const response = await axios.get("http://localhost:3000/orders");
+			const response = await axios.get("http://localhost:3000/order");
 			const orders = response.data;
 
 			return dispatch({
