@@ -2,12 +2,14 @@ import {
 	GET_ALL_PRODUCTS,
 	CREATE_PRODUCT,
 	GET_ALL_ORDERS, // Importar la nueva acción
-	CREATE_ORDER, // Importar la nueva acción
+	CREATE_ORDER,
+	LOGIN_SUCCESS, // Importar la nueva acción
 } from "../action-types.js";
 
 const initialState = {
 	products: [],
 	orders: [], // Agregar el array de órdenes al estado inicial
+	token: null,
 };
 
 function rootReducer(state = initialState, action) {
@@ -31,6 +33,11 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				orders: [...state.orders, action.payload],
+			};
+		case LOGIN_SUCCESS:
+			return {
+				...state,
+				token: action.payload,
 			};
 		default:
 			return state;

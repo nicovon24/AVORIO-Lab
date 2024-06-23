@@ -8,6 +8,7 @@ import store from "./redux/store/store";
 import Landing from "./Pages/Landing";
 import Cart from "./Pages/Cart";
 import Error404 from "./Pages/Error404/Error404";
+import LogIn from "./Components/LogIn/LogIn";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 				<App/>
 				<Routes>
 					<Route exact path="/" element={<Landing />}></Route>
+					<Route exact path="/login" element={<LogIn />}></Route>
 					<Route exact path="/cart" element={<Cart />}></Route>
 					<Route exact path="*" element={<Error404 />}></Route>
 				</Routes>
