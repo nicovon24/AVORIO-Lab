@@ -8,7 +8,7 @@ import store from "./redux/store/store";
 import Landing from "./Pages/Landing";
 import Cart from "./Pages/Cart";
 import Error404 from "./Pages/Error404/Error404";
-import LogIn from "./Components/LogIn/LogIn";
+import LogIn from "./Components/LogIn/LogIn"
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
