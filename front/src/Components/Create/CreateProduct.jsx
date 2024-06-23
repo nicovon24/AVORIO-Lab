@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createProduct, getAllProducts } from "../../redux/actions/actions";
+import { createProduct, getAllProducts } from "../../redux/actions/products";
 
 const CreateProductForm = ({ isOpen, onClose }) => {
 	const dispatch = useDispatch();
@@ -40,18 +40,17 @@ const CreateProductForm = ({ isOpen, onClose }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		if (validate()) {
-			dispatch(createProduct(product))
-				.then(() => {
-					dispatch(getAllProducts());
-					setProduct({
-						image: "",
-						title: "",
-						description: "",
-						category: "",
-						price: "",
-					});
-					onClose();
-				})
+			dispatch(createProduct(product)).then(() => {
+				dispatch(getAllProducts());
+				setProduct({
+					image: "",
+					title: "",
+					description: "",
+					category: "",
+					price: "",
+				});
+				onClose();
+			});
 			setProduct({
 				image: "",
 				title: "",
@@ -81,7 +80,7 @@ const CreateProductForm = ({ isOpen, onClose }) => {
 							name="image"
 							value={product.image}
 							onChange={handleChange}
-							className="w-full border rounded-md p-2 text-blue-500"
+							className="w-full border rounded-md p-2 text-blue-500 border-blue-500"
 						/>
 						{errors.image && <p className="text-red-500">{errors.image}</p>}
 					</div>
@@ -92,7 +91,7 @@ const CreateProductForm = ({ isOpen, onClose }) => {
 							name="title"
 							value={product.title}
 							onChange={handleChange}
-							className="w-full border rounded-md p-2 text-blue-500"
+							className="w-full border rounded-md p-2 text-blue-500 border-blue-500"
 						/>
 						{errors.title && <p className="text-red-500">{errors.title}</p>}
 					</div>
@@ -103,7 +102,7 @@ const CreateProductForm = ({ isOpen, onClose }) => {
 							name="description"
 							value={product.description}
 							onChange={handleChange}
-							className="w-full border rounded-md p-2 text-blue-500"
+							className="w-full border rounded-md p-2 text-blue-500 border-blue-500"
 						/>
 						{errors.description && (
 							<p className="text-red-500">{errors.description}</p>
@@ -115,7 +114,7 @@ const CreateProductForm = ({ isOpen, onClose }) => {
 							name="category"
 							value={product.category}
 							onChange={handleChange}
-							className="w-full border rounded-md p-2 text-blue-500"
+							className="w-full border rounded-md p-2 text-blue-500 border-blue-500"
 						>
 							<option value="">Seleccione una categoría</option>
 							<option value="Facial">Facial</option>
@@ -130,7 +129,7 @@ const CreateProductForm = ({ isOpen, onClose }) => {
 							name="price"
 							value={product.price}
 							onChange={handleChange}
-							className="w-full border rounded-md p-2 text-blue-500"
+							className="w-full border rounded-md p-2 text-blue-500 border-blue-500"
 						/>
 						{errors.price && <p className="text-red-500">{errors.price}</p>}
 					</div>

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-import CreateProductForm from "../Create/CreateProduct";
+import { useDispatch } from "react-redux";
+import { createOrder } from "../../redux/actions/orders"; // Importa la acción createOrder
 
 const ProductCard = ({ product }) => {
 	const [isFormOpen, setIsFormOpen] = useState(false);
+	const dispatch = useDispatch(); // Obtener el dispatcher de Redux
 
 	const openForm = () => {
 		setIsFormOpen(true);
@@ -12,19 +14,8 @@ const ProductCard = ({ product }) => {
 		setIsFormOpen(false);
 	};
 
-  const addToCart = (product) => {
-		// Obtener el carrito actual del localStorage
-		let cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    console.log(cart);
-
-		// Agregar el nuevo producto al carrito
-		cart.push(product);
-
-		// Guardar el carrito actualizado en el localStorage
-		localStorage.setItem('cart', JSON.stringify(cart));
-
-		alert(`${product.title} ha sido agregado al carrito!`);
+	const addToCart = (product) => {
+		dispatch(createOrder(product._id)); 
 	};
 
 	return (
@@ -36,8 +27,7 @@ const ProductCard = ({ product }) => {
 			/>
 			<h2 className="text-xl font-semibold mb-2">{product.title}</h2>
 			<p className="mb-4">{product.description}</p>
-			<p className="font-bold">Price: ${product.price}</p>
-			<CreateProductForm isOpen={isFormOpen} onClose={closeForm} />
+			<p className="font-bold text-xl">${product.price}</p>
 			<button
 				className="border-2 rounded-lg px-2 py-1 mt-4 bg-blue-500 text-white"
 				onClick={() => addToCart(product)}
