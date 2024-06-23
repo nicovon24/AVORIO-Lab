@@ -22,7 +22,6 @@ const Cards = () => {
 					</div>
 				))}
 			</div>
-			<AddButton/>
 		</div>
 	);
 };
