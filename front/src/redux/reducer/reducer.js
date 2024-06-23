@@ -3,7 +3,8 @@ import {
 	CREATE_PRODUCT,
 	GET_ALL_ORDERS, // Importar la nueva acción
 	CREATE_ORDER,
-	LOGIN_SUCCESS, // Importar la nueva acción
+	LOGIN_SUCCESS,
+	LOGOUT_SUCCESS, // Importar la nueva acción
 } from "../action-types.js";
 
 const initialState = {
@@ -37,7 +38,12 @@ function rootReducer(state = initialState, action) {
 		case LOGIN_SUCCESS:
 			return {
 				...state,
-				token: action.payload,
+				token: action.payload.token,
+			};
+		case LOGOUT_SUCCESS:
+			return {
+				...state,
+				token: null,
 			};
 		default:
 			return state;
