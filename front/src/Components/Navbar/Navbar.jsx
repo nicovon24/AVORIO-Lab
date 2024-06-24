@@ -19,6 +19,7 @@ const Navbar = ({ user_type }) => {
 				</label>
 			)}
 			<BackButton />
+			{user_type != "admin" && <HomeButton />}
 			<CartButton />
 			{user_type == "admin" && <AdminButton />}
 			{location.pathname !== "/login" && <LogoutButton />}

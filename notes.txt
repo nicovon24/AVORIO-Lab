@@ -14,7 +14,7 @@ Cliente realiza las compras
 O puede ser que se envíe un Mail con la orden de compra
 
 
-Estados de consignas
+Estados de consignas y .env
 https://docs.google.com/spreadsheets/d/1ok58AfxHqktBCGSkgOoSsqFvt5aV_YXwQ-HfgpdVGlY/edit?usp=sharing
 
 
@@ -25,3 +25,5 @@ nicovon24@gmail.com
 CUENTA DE usuario
 vononnicolas@gmail.com 
 123456
+
+
