@@ -1,6 +1,6 @@
 // Importa los módulos necesarios
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../redux/actions/auth";
 import logo from "../../assets/logo.png";
@@ -12,7 +12,7 @@ const LogIn = () => {
   });
 
   const navigate = useNavigate(); // Utiliza useNavigate para la redirección
-
+  const {token, user_type} = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
@@ -22,7 +22,6 @@ const LogIn = () => {
         await dispatch(loginUser(inputs.userName, inputs.password)).then(
           (data) => {
             localStorage.setItem("token", data.payload.token);
-            navigate("/"); // Redirige al usuario a la página principal
           }
         );
       } catch (error) {

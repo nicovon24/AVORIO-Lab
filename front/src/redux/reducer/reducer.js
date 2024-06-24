@@ -39,11 +39,13 @@ function rootReducer(state = initialState, action) {
 			return {
 				...state,
 				token: action.payload.token,
+				user_type: action.payload.type,
 			};
 		case LOGOUT_SUCCESS:
 			return {
 				...state,
 				token: null,
+				user_type: null,
 			};
 		default:
 			return state;

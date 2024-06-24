@@ -67,7 +67,7 @@ const CreateProductForm = ({ isOpen, onClose }) => {
 	}
 
 	return (
-		<div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+		<div className="fixed inset-0 z-10 flex items-center justify-center bg-black bg-opacity-50">
 			<div className="bg-white p-4 rounded-md max-w-md w-full relative">
 				<button className="absolute top-0 right-0 p-2" onClick={onClose}>
 					X
