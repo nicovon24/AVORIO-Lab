@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllOrders } from "../redux/actions/orders";
+import { useNavigate } from "react-router-dom";
 
 const OrdersGrid = () => {
   const orders = useSelector((state) => state.orders);
   const dispatch = useDispatch();
+
+const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getAllOrders());
@@ -51,6 +54,7 @@ const OrdersGrid = () => {
           </tr>
         </tbody>
       </table>
+      <button className="bg-blue-500 mt-8 py-4 px-8 rounded-md" onClick={()=>navigate("/purchase")}> Ir a Comprar </button>
     </div>
   );
 };
