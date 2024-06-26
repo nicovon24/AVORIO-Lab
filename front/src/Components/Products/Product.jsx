@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
 			<p className="mb-4">{product.description}</p>
 			<p className="font-bold text-xl">${product.price}</p>
 			<button
-				className="border-2 rounded-lg px-2 py-1 mt-4 bg-blue-500 text-white"
+				className="border-2 rounded-lg px-2 py-1 mt-4 bg-blue-500 text-white bg-blue-500 hover:bg-blue-400"
 				onClick={() => addToCart(product)}
 			>
 				Agregar al carrito

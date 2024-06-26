@@ -13,7 +13,7 @@ const PurchasePage = () => {
     }
     return (
         <div className="border-2 border-black rounded-xl w-1/2  flex flex-col mx-auto">
-            <h1 className="font-bold text-2xl my-4">Finish your order, please please</h1>
+            <h1 className="font-bold text-2xl my-4">Termina tu orden, por favor</h1>
             <div className="flex justify-start mb-6">
                 <label htmlFor="" className="ml-2 mr-6 justify-start w-1/3"> Nombre </label>
                 <input
@@ -58,9 +58,9 @@ const PurchasePage = () => {
             </div>
             <div className="mx-8">
                 <div className="flex flex-row justify-between font-bold">
-                    <p className="w-1/4">Products</p>
-                    <p className="w-1/4">Prices</p>
-                    <p className="w-1/4">Quantity</p>
+                    <p className="w-1/4">Productos</p>
+                    <p className="w-1/4">Precios</p>
+                    <p className="w-1/4">Cantidad</p>
                 </div>
 
                 {orders && orders.length > 0 && orders[0].products && orders[0].products.length > 0 ? (
@@ -74,16 +74,16 @@ const PurchasePage = () => {
                         );
                     })
                 ) : (
-                    <p>No products available</p>
+                    <p>Ningun producto disponible</p>
                 )}
             </div>
             <p className="text-right mr-6 font-bold text-xl mb-4">Total: ${orders && orders[0] && orders[0].total}</p>
             <button
-                className="w-5/6 mx-auto bg-blue-600 rounded-xl mb-4 py-2  hover:bg-blue-500"
+                className="w-5/6 mx-auto bg-blue-600 rounded-xl mb-4 py-2  hover:bg-blue-500 text-white"
                 onClick={() => {
                     handleSendData()
                 }}
-            >Buy Now</button>
+            >Comprar ahora</button>
         </div>
 
 

@@ -15,7 +15,7 @@ const LogoutButton = () => {
   };
 
   return (
-      <Link to="/" className="text-white py-2 px-4" onClick={handleLogout}>
+      <Link to="/" className="text-white py-2 px-4 hover:bg-blue-400" onClick={handleLogout}>
         {/* <i className="fa fa-sign-out" aria-hidden="true"></i> */}
         <i className="fa fa-sign-out" aria-hidden="true"></i><br></br>
         <span className="text-[12px]">LOGOUT</span>

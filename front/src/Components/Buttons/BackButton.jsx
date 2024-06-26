@@ -11,7 +11,7 @@ const BackButton = () => {
             <div>
                 <button
                     onClick={goBack}
-                    className="text-white py-2 px-4 rounded-md"
+                    className="text-white py-2 px-4 rounded-md bg-blue-500 hover:bg-blue-400"
                 >
                     <i class="fa fa-arrow-left" aria-hidden="true"></i><br></br>
                     <span className="text-[12px]">BACK</span>
