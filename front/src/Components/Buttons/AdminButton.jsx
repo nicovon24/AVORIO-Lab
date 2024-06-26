@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 const AdminButton = () => {
 	return (
-		<Link to="/admin" className="bg-blue-500 text-white py-2 px-4 rounded-md ">
+		<Link to="/admin" className="border-2 border-white rounded-full  text-white py-2 px-4">
+			{/* ADMIN */}
 			<i class="fa fa-male" aria-hidden="true"></i>
 		</Link>
 	);

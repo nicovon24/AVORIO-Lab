@@ -2,7 +2,3 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-#root, body{
-  background-color: #F1F3FF;
-  width: 100%;
-}

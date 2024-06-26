@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getAllOrders } from "../redux/actions/orders";
+import { createOrder, getAllOrders } from "../redux/actions/orders";
 import { useNavigate } from "react-router-dom";
 
 const OrdersGrid = () => {
   const orders = useSelector((state) => state.orders);
   const dispatch = useDispatch();
 
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
+	const addToCart = (product) => {
+		dispatch(createOrder(product._id))
+      .then(item=>{
+        dispatch(getAllOrders());
+      }); 
+	};
 
   useEffect(() => {
     dispatch(getAllOrders());
@@ -45,6 +52,12 @@ const navigate = useNavigate();
                 <td className="px-4 py-2 border border-blue-500">{item.quantity}</td>
                 <td className="px-4 py-2 border border-blue-500">${item.price}</td>
                 <td className="px-4 py-2 border border-blue-500">${item.quantity * item.price}</td>
+                <button
+                  className="border-2 rounded-lg px-2 py-1 mt-4 bg-blue-500 text-white"
+                  onClick={() => addToCart(item.product)}
+                >
+                  Agregar 
+                </button>
               </tr>
             ))
           ))}

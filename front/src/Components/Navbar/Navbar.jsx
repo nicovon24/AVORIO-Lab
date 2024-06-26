@@ -7,21 +7,23 @@ import LogoutButton from "../Buttons/LogoutButton";
 import HomeButton from "../Buttons/HomeButton";
 import Admin from "../../Pages/Admin";
 import AdminButton from "../Buttons/AdminButton";
+import BuysButton from "../Buttons/BuysButton";
 
 const Navbar = ({ user_type }) => {
 	const location = useLocation();
 
 	return (
-		<nav className="flex justify-between items-center gap-4 pb-4 mb-4 border-b-2 w-full">
-			{user_type && (
-				<label className="bg-blue-500 text-white py-2 px-4 rounded-md">
+		<nav className="flex justify-between items-center gap-4 py-4 px-4 border-b-2 w-full bg-blue-500 mb-4">
+			<BackButton />
+			{/* {user_type && (
+				<label className="text-white border-b-2 border-white py-2 px-4">
 					{user_type?.toUpperCase()}
 				</label>
-			)}
-			<BackButton />
+			)} */}
 			{user_type != "admin" && <HomeButton />}
-			<CartButton />
+			{user_type != "admin" && <CartButton />}
 			{user_type == "admin" && <AdminButton />}
+			{user_type == "admin" && <BuysButton />}
 			{location.pathname !== "/login" && <LogoutButton />}
 		</nav>
 	);

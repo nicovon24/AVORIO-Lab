@@ -21,7 +21,9 @@ const LogIn = () => {
       try {
         await dispatch(loginUser(inputs.userName, inputs.password)).then(
           (data) => {
+            console.log(data);
             localStorage.setItem("token", data.payload.token);
+            localStorage.setItem("user_type", data.payload.type);
           }
         );
       } catch (error) {

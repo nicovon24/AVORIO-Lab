@@ -4,13 +4,15 @@ import {
 	GET_ALL_ORDERS, // Importar la nueva acción
 	CREATE_ORDER,
 	LOGIN_SUCCESS,
-	LOGOUT_SUCCESS, // Importar la nueva acción
+	LOGOUT_SUCCESS,
+	GET_BUYS, // Importar la nueva acción
 } from "../action-types.js";
 
 const initialState = {
 	products: [],
 	orders: [], // Agregar el array de órdenes al estado inicial
 	token: null,
+	buys: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -46,6 +48,11 @@ function rootReducer(state = initialState, action) {
 				...state,
 				token: null,
 				user_type: null,
+			};
+		case GET_BUYS:
+			return {
+				...state,
+				buys: action.payload
 			};
 		default:
 			return state;

@@ -7,7 +7,7 @@ const CartButton = () => {
 			<div>
 				<Link
 					to="/cart"
-					className="bg-blue-500 text-white py-2 px-4 rounded-md "
+					className="text-white py-2 px-4 border-2 border-white rounded-full "
 				>
 					<i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
 				</Link>

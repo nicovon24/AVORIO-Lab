@@ -32,7 +32,7 @@ const ProductCard = ({ product }) => {
 				className="border-2 rounded-lg px-2 py-1 mt-4 bg-blue-500 text-white"
 				onClick={() => addToCart(product)}
 			>
-				Add to cart
+				Agregar al carrito
 			</button>
 		</div>
 	);
