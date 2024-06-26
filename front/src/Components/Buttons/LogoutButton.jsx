@@ -15,11 +15,11 @@ const LogoutButton = () => {
   };
 
   return (
-    <div>
-      <Link to="/" className="border-2 border-white rounded-full  text-white py-2 px-4 rounded-md " onClick={handleLogout}>
-        <i className="fa fa-sign-out" aria-hidden="true"></i>
+      <Link to="/" className="text-white py-2 px-4" onClick={handleLogout}>
+        {/* <i className="fa fa-sign-out" aria-hidden="true"></i> */}
+        <i className="fa fa-sign-out" aria-hidden="true"></i><br></br>
+        <span className="text-[12px]">LOGOUT</span>
       </Link>
-    </div>
   );
 };
 

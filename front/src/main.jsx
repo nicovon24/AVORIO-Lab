@@ -11,6 +11,7 @@ import Error404 from "./Pages/Error404/Error404";
 import LogIn from "./Components/LogIn/LogIn"
 import Admin from "./Pages/Admin";
 import PurchasePage from "./Pages/PurchasePage";
+import Buys from "./Pages/Buys";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
 	<React.StrictMode>
@@ -23,6 +24,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 					<Route exact path="/cart" element={<Cart />}></Route>
 					<Route exact path="/purchase" element={<PurchasePage />}></Route>
 					<Route exact path="/admin" element={<Admin />}></Route>
+					<Route exact path="/buys" element={<Buys />}></Route>
 					<Route exact path="*" element={<Error404 />}></Route>
 				</Routes>
 			</Provider>
