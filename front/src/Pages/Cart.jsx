@@ -9,19 +9,19 @@ const OrdersGrid = () => {
 
   const navigate = useNavigate();
 
-	const addToCart = (product) => {
-		dispatch(createOrder(product._id))
-      .then(item=>{
+  const addToCart = (product) => {
+    dispatch(createOrder(product._id))
+      .then(item => {
         dispatch(getAllOrders());
-      }); 
-	};
+      });
+  };
 
   const substractInCart = (product) => {
-		dispatch(substractInOrder(product._id))
-      .then(item=>{
+    dispatch(substractInOrder(product._id))
+      .then(item => {
         dispatch(getAllOrders());
-      }); 
-	};
+      });
+  };
 
   useEffect(() => {
     dispatch(getAllOrders());
@@ -37,7 +37,7 @@ const OrdersGrid = () => {
   console.log(orders);
   return (
     <div className="container mx-auto px-4 py-8">
-      {orders?.[0]?.products.length>0 ?  <>
+      {orders?.[0]?.products.length > 0 ? <>
 
         {/* products already exist in the order  */}
         <h1 className="text-2xl font-bold mb-4">Orders</h1>
@@ -64,14 +64,14 @@ const OrdersGrid = () => {
                   <td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">${item.price}</td>
                   <td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">
                     <button
-                    className="border-2 rounded-lg px-2 py-1 mt-4 bg-green-500 text-white"
+                      className="border-2 rounded-lg px-2 py-1 mt-4 bg-green-500 text-white"
                       onClick={() => addToCart(item.product)}
                     >
                       <i class="fa fa-plus" aria-hidden="true"></i>
                       {/* {'  '} Agregar  */}
                     </button>
                     <button
-                    className="border-2 rounded-lg px-2 py-1 mt-4 ml-2 bg-red-500 text-white"
+                      className="border-2 rounded-lg px-2 py-1 mt-4 ml-2 bg-red-500 text-white"
                       onClick={() => substractInCart(item.product)}
                     >
                       <i class="fa fa-minus" aria-hidden="true"></i>
@@ -79,7 +79,7 @@ const OrdersGrid = () => {
                     </button>
                   </td>
                   <td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">${item.quantity * item.price}</td>
-                  
+
                 </tr>
               ))
             ))}
@@ -89,19 +89,19 @@ const OrdersGrid = () => {
             </tr>
           </tbody>
         </table>
-        <button className="border-black mt-8 py-4 px-8 rounded-md text-white" onClick={()=>navigate("/purchase")}> Comprar </button>
-      </> 
-      
-    
-          : 
+        <button className="border-black mt-8 py-4 px-8 rounded-md text-white bg-blue-500 hover:bg-blue-800" onClick={() => navigate("/purchase")}> Comprar </button>
+      </>
 
-          <>
-    {/* no products  */}
-            <label>Ningun producto en el carrito, seleccione un producto</label><br></br><br></br><br></br>
-            <Link to="/" className="bg-blue-500 text-white mt-8 py-4 px-8 rounded-md">
-              Seleccionar productos
-            </Link>
-          </>
+
+        :
+
+        <>
+          {/* no products  */}
+          <label>Ningun producto en el carrito, seleccione un producto</label><br></br><br></br><br></br>
+          <Link to="/" className="bg-blue-500 text-white mt-8 py-4 px-8 rounded-md">
+            Seleccionar productos
+          </Link>
+        </>
       }
     </div>
   );

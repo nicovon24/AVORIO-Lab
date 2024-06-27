@@ -6,6 +6,7 @@ const router = express.Router();
 router.post("/", async (req, res) => {
     try {
         const { username, email, address, orderId } = req.body;
+        if (username == "" || email == "" || address == "") res.status(400).json("error datos vacios");
         const newBuy = new Buy({ name: username, email, address, OrderId: orderId });
         await newBuy.save();
         res.status(201).json(newBuy);
