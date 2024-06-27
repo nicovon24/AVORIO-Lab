@@ -1,10 +1,9 @@
 import {
 	CREATE_PRODUCT,
-	GET_ALL_PRODUCTS, // Importar la nueva acción
+	GET_ALL_PRODUCTS, 
 } from "../action-types.js";
 import axios from "axios";
 
-// Nueva acción para obtener todos los productos
 export function getAllProducts() {
 	return async function (dispatch) {
 		try {
@@ -21,7 +20,6 @@ export function getAllProducts() {
 	};
 }
 
-// Nueva acción para crear un producto
 export function createProduct(product) {
 	return async function (dispatch) {
 		try {

@@ -11,7 +11,7 @@ const LogIn = () => {
     password: "",
   });
 
-  const navigate = useNavigate(); // Utiliza useNavigate para la redirección
+  const navigate = useNavigate(); 
   const {token, user_type} = useSelector((state) => state);
   const dispatch = useDispatch();
 

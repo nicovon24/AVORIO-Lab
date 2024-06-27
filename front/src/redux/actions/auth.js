@@ -22,10 +22,8 @@ export function loginUser(email, password) {
 export function logoutUser() {
 	return async function (dispatch) {
 		try {
-			// Establecer el token en null en el almacenamiento local
 			localStorage.setItem("token", null);
 
-			// Envía la acción de logout exitoso al reducer
 			return dispatch({
 				type: LOGOUT_SUCCESS,
 			});

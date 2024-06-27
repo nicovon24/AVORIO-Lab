@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { createOrder } from "../../redux/actions/orders"; // Importa la acción createOrder
+import { createOrder } from "../../redux/actions/orders"; 
 
 const ProductCard = ({ product }) => {
 	const [isFormOpen, setIsFormOpen] = useState(false);
-	const dispatch = useDispatch(); // Obtener el dispatcher de Redux
+	const dispatch = useDispatch(); 
 
 	const openForm = () => {
 		setIsFormOpen(true);

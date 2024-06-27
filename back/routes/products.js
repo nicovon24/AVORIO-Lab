@@ -3,7 +3,6 @@ import Producto from "../models/Product.js";
 
 const router = express.Router();
 
-// Ruta para obtener todos los productos
 router.get("/", async (req, res) => {
 	try {
 		const productos = await Producto.find();
@@ -13,7 +12,6 @@ router.get("/", async (req, res) => {
 	}
 });
 
-// Filtrar por categoría
 router.get("/category/:category", async (req, res) => {
 	try {
 		const category = req.params.category;
@@ -26,17 +24,14 @@ router.get("/category/:category", async (req, res) => {
 	}
 });
 
-// Ruta para crear un nuevo producto
 router.post("/", async (req, res) => {
 	try {
 		const { image, title, description, category, price } = req.body;
 
-		// Validación de campos
 		if (!image || !title || !description || !category || !price) {
 			return res.status(400).json({ error: "Todos los campos son obligatorios." });
 		}
 
-		// Creación del nuevo producto
 		const nuevoProducto = new Producto({
 			image,
 			title,
@@ -46,7 +41,6 @@ router.post("/", async (req, res) => {
 		});
 		await nuevoProducto.save();
 
-		// Enviar respuesta
 		res.status(201).json({ producto: nuevoProducto });
 	} catch (err) {
 		res.status(500).json({ error: err.message });
