@@ -1,14 +1,24 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { createBuy } from "../redux/actions/buys";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const PurchasePage = () => {
     const orders = useSelector((state) => state.orders);
     const [values, setValues] = useState({ username: "", email: "", address: "" })
+    const navigate = useNavigate();
 
     const handleSendData = async () => {
         const body = ({ username: values.username, email: values.email, address: values.address, orderId: orders[0]._id })
         const response = await createBuy(body);
+        if (response) {
+            toast.success("Compra Realizada");
+            navigate("/");
+        }
+        else {
+            toast.error("Todos los campos son obligatorios");
+        }
         setValues({ username: "", email: "", address: "" })
     }
     return (
