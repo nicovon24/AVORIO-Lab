@@ -4,13 +4,17 @@ import {
 	GET_ALL_ORDERS, // Importar la nueva acción
 	CREATE_ORDER,
 	LOGIN_SUCCESS,
-	LOGOUT_SUCCESS, // Importar la nueva acción
+	LOGOUT_SUCCESS,
+	GET_BUYS,
+	SUBTRACT_IN_ORDER,
+	// REMOVE_ORDER,
 } from "../action-types.js";
 
 const initialState = {
 	products: [],
 	orders: [], // Agregar el array de órdenes al estado inicial
 	token: null,
+	buys: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -31,10 +35,60 @@ function rootReducer(state = initialState, action) {
 				orders: action.payload,
 			};
 		case CREATE_ORDER:
+			const { products } = state.orders[0]; // Obtén los productos de la orden actual
+			
+			// Encuentra el producto correspondiente en la lista de productos
+			const updatedProducts = products.map(order => {
+				if (order.product._id === action.order) {
+				// Incrementa la cantidad del producto encontrado
+				return {
+					...order,
+					quantity: order.quantity + 1
+				};
+				}
+				return order;
+			});
+
+			const newOrders = state.orders
+
+			newOrders[0].products = updatedProducts
+
 			return {
 				...state,
-				orders: [...state.orders, action.payload],
+				orders: newOrders
 			};
+
+		case SUBTRACT_IN_ORDER:
+			let products2 = state.orders[0].products
+
+			console.log(products2);
+			
+			// Encuentra el producto correspondiente en la lista de productos
+			let updatedProducts2 = products2.map(order => {
+				if (order.product._id === action.order) {
+				// Incrementa la cantidad del producto encontrado
+					console.log(order.quantity - 1);
+					return {
+						...order,
+						quantity: order.quantity - 1
+					};
+				}
+				return order;
+			});
+
+			updatedProducts2 = updatedProducts2.filter(item=>item.quantity>0)
+
+			let newOrders2 = state.orders
+
+			newOrders2[0].products = updatedProducts2
+
+			console.log(newOrders2);
+
+			return {
+				...state,
+				orders: newOrders2
+			};
+
 		case LOGIN_SUCCESS:
 			return {
 				...state,
@@ -46,6 +100,11 @@ function rootReducer(state = initialState, action) {
 				...state,
 				token: null,
 				user_type: null,
+			};
+		case GET_BUYS:
+			return {
+				...state,
+				buys: action.payload
 			};
 		default:
 			return state;

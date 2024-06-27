@@ -20,7 +20,7 @@ const AddButton = () => {
 			<div>
 				<button
 					onClick={openForm}
-					className="bg-blue-500 text-white py-2 px-4 rounded-md"
+					className="bg-blue-500 text-white py-2 px-4 rounded-md bg-blue-500 hover:bg-blue-400"
 				>
 					Add Product
           {/* <i class="fa fa-plus" aria-hidden="true"></i> */}

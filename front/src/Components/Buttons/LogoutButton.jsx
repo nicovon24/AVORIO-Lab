@@ -9,16 +9,17 @@ const LogoutButton = () => {
 
   const handleLogout = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('user_type');
     dispatch(logoutUser())
     navigate("/")
   };
 
   return (
-    <div>
-      <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-md " onClick={handleLogout}>
-        <i className="fa fa-sign-out" aria-hidden="true"></i>
+      <Link to="/" className="text-white py-2 px-4 hover:bg-blue-400" onClick={handleLogout}>
+        {/* <i className="fa fa-sign-out" aria-hidden="true"></i> */}
+        <i className="fa fa-sign-out" aria-hidden="true"></i><br></br>
+        <span className="text-[12px]">LOGOUT</span>
       </Link>
-    </div>
   );
 };
 

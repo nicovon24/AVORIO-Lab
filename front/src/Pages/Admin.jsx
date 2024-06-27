@@ -9,13 +9,13 @@ const Admin = () => {
 		<div>
 			{user_type == "admin" && <AddButton />}
 			<div className="container mx-auto px-4 py-8">
-				<h1 className="text-2xl font-bold mb-4">Products</h1>
+				<h1 className="text-2xl font-bold mb-4">Productos</h1>
 				<table className="table-auto w-full">
 					<thead>
 						<tr>
-							<th className="px-4 py-2 border border-blue-500">Image</th>
-							<th className="px-4 py-2 border border-blue-500">Product</th>
-							<th className="px-4 py-2 border border-blue-500">Price</th>
+							<th className="px-4 py-2 border border-blue-500">Imagen</th>
+							<th className="px-4 py-2 border border-blue-500">Producto</th>
+							<th className="px-4 py-2 border border-blue-500">Precio</th>
 						</tr>
 					</thead>
 					<tbody>
