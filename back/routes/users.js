@@ -29,13 +29,11 @@ router.post("/", async (req, res) => {
 				.json({ error: "El tipo de usuario debe ser 'admin' o 'user'." });
 		}
 
-		// Encriptar la contraseña
 		const hashedPassword = await bcrypt.hash(password, 10);
 
 		const newUser = new User({ name, email, password: hashedPassword, type });
 		await newUser.save();
 
-		// Enviar respuesta sin encriptar la información sensible
 		res.status(201).json({ user: { name, email, type } });
 	} catch (err) {
 		res.status(500).json({ error: err.message });

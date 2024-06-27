@@ -1,7 +1,7 @@
 import {
 	CREATE_ORDER,
 	GET_ALL_ORDERS,
-	SUBTRACT_IN_ORDER, // Importar la nueva acción
+	SUBTRACT_IN_ORDER, 
 } from "../action-types.js";
 import axios from "axios";
 

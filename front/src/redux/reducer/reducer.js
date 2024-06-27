@@ -1,7 +1,7 @@
 import {
 	GET_ALL_PRODUCTS,
 	CREATE_PRODUCT,
-	GET_ALL_ORDERS, // Importar la nueva acción
+	GET_ALL_ORDERS, 
 	CREATE_ORDER,
 	LOGIN_SUCCESS,
 	LOGOUT_SUCCESS,
@@ -12,7 +12,7 @@ import {
 
 const initialState = {
 	products: [],
-	orders: [], // Agregar el array de órdenes al estado inicial
+	orders: [], 
 	token: null,
 	buys: []
 };
@@ -35,12 +35,10 @@ function rootReducer(state = initialState, action) {
 				orders: action.payload,
 			};
 		case CREATE_ORDER:
-			const { products } = state.orders[0]; // Obtén los productos de la orden actual
+			const { products } = state.orders[0]; 
 			
-			// Encuentra el producto correspondiente en la lista de productos
 			const updatedProducts = products.map(order => {
 				if (order.product._id === action.order) {
-				// Incrementa la cantidad del producto encontrado
 				return {
 					...order,
 					quantity: order.quantity + 1
@@ -63,10 +61,8 @@ function rootReducer(state = initialState, action) {
 
 			console.log(products2);
 			
-			// Encuentra el producto correspondiente en la lista de productos
 			let updatedProducts2 = products2.map(order => {
 				if (order.product._id === action.order) {
-				// Incrementa la cantidad del producto encontrado
 					console.log(order.quantity - 1);
 					return {
 						...order,

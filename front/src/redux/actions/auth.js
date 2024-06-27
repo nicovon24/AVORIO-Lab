@@ -8,7 +8,6 @@ export function loginUser(email, password) {
 				email,
 				password,
 			});
-			// console.log(response.data);
 			return dispatch({
 				type: LOGIN_SUCCESS,
 				payload: response.data,
