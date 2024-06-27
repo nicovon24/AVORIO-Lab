@@ -20,19 +20,19 @@ const Buys = () => {
 				<table className="table-auto w-full">
 					<thead>
 						<tr>
-							<th className="px-4 py-2 border border-blue-500">Nombre</th>
-							<th className="px-4 py-2 border border-blue-500">Email</th>
-							<th className="px-4 py-2 border border-blue-500">Dirección</th>
-							<th className="px-4 py-2 border border-blue-500">ID de Orden</th>
+							<th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-blue-600">Nombre</th>
+							<th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-blue-600">Email</th>
+							<th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-blue-600">Dirección</th>
+							<th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-blue-600">ID de Orden</th>
 						</tr>
 					</thead>
 					<tbody>
 						{buys.map((user, index) => (
 							<tr key={`${user._id}-${index}`}>
-								<td className="px-4 py-2 border border-blue-500">{user.name}</td>
-								<td className="px-4 py-2 border border-blue-500">{user.email}</td>
-								<td className="px-4 py-2 border border-blue-500">{user.address}</td>
-								<td className="px-4 py-2 border border-blue-500">{user.OrderId}</td>
+								<td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">{user.name}</td>
+								<td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">{user.email}</td>
+								<td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">{user.address}</td>
+								<td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">{user.OrderId}</td>
 							</tr>
 						))}
 					</tbody>

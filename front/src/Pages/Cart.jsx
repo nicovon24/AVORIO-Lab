@@ -44,25 +44,25 @@ const OrdersGrid = () => {
         <table className="table-auto w-full">
           <thead>
             <tr>
-              <th className="px-4 py-2 border border-blue-500">Imagen</th>
-              <th className="px-4 py-2 border border-blue-500">Producto</th>
-              <th className="px-4 py-2 border border-blue-500">Cantidad</th>
-              <th className="px-4 py-2 border border-blue-500">Precio</th>
-              <th className="px-4 py-2 border border-blue-500">Acciones</th>
-              <th className="px-4 py-2 border border-blue-500">Subtotal</th>
+              <th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black ">Imagen</th>
+              <th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">Producto</th>
+              <th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">Cantidad</th>
+              <th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">Precio</th>
+              <th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">Acciones</th>
+              <th className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">Subtotal</th>
             </tr>
           </thead>
           <tbody>
             {orders.map((order) => (
               order.products.map((item, index) => (
                 <tr key={`${order._id}-${index}`}>
-                  <td className="px-4 py-2 border border-blue-500">
-                    <img src={item.product.image} alt={item.product.title} className="w-12" />
+                  <td className="px-4 py-2 border   border-black flex justify-center ">
+                    <img src={item.product.image} alt={item.product.title} className="w-36 h-25" />
                   </td>
-                  <td className="px-4 py-2 border border-blue-500">{item.product.title}</td>
-                  <td className="px-4 py-2 border border-blue-500">{item.quantity}</td>
-                  <td className="px-4 py-2 border border-blue-500">${item.price}</td>
-                  <td className="px-4 py-2 border border-blue-500">
+                  <td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">{item.product.title}</td>
+                  <td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">{item.quantity}</td>
+                  <td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">${item.price}</td>
+                  <td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">
                     <button
                     className="border-2 rounded-lg px-2 py-1 mt-4 bg-green-500 text-white"
                       onClick={() => addToCart(item.product)}
@@ -78,18 +78,18 @@ const OrdersGrid = () => {
                       {/* {'  '} Borrar  */}
                     </button>
                   </td>
-                  <td className="px-4 py-2 border border-blue-500">${item.quantity * item.price}</td>
+                  <td className="px-4 py-2 border-2 border-collapse border-r-2 overflow-hidden border-black">${item.quantity * item.price}</td>
                   
                 </tr>
               ))
             ))}
             <tr>
-              <td colSpan="5" className="font-bold border border-blue-500 py-4">Total:</td>
-              <td className="font-bold border border-blue-500 py-4 ">${calculateTotal()}</td>
+              <td colSpan="5" className="font-bold border-2 border-collapse border-r-2 overflow-hidden border-black py-4">Total:</td>
+              <td className="font-bold border border-black py-4 ">${calculateTotal()}</td>
             </tr>
           </tbody>
         </table>
-        <button className="bg-blue-500 mt-8 py-4 px-8 rounded-md text-white" onClick={()=>navigate("/purchase")}> Comprar </button>
+        <button className="border-black mt-8 py-4 px-8 rounded-md text-white" onClick={()=>navigate("/purchase")}> Comprar </button>
       </> 
       
     
